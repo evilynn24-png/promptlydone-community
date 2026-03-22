@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FloWeTREE Exclusive Deal — Promptly Done Automations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f5;
+      --surface: #f3efe8;
+      --card: #ffffff;
+      --border: rgba(180,140,80,0.15);
+      --text: #2a2218;
+      --muted: #7a6e5f;
+      --accent: #9b6c2f;
+      --accent2: #7b52a8;
+      --accent-glow: rgba(123,82,168,0.1);
+      --sale: #9b6c2f;
+      --radius: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SOFT BG GLOW ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(201,169,110,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 85%, rgba(123,82,168,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 40%, rgba(201,169,110,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,248,245,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    .nav-brand .brand-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .nav-brand .brand-sub {
+      font-size: 0.7rem; font-weight: 300; color: var(--accent);
+      letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .nav-badge {
+      background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(180,138,255,0.15));
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem; font-weight: 500;
+      color: var(--accent2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 92vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+    }
+    .ticker-wrap {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(180,138,255,0.1));
+      border: 1px solid rgba(201,169,110,0.25);
+      border-radius: 50px;
+      padding: 0.45rem 0;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+      max-width: 100%;
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 18s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0 2rem;
+      white-space: nowrap;
+    }
+    .ticker-item .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--muted); max-width: 520px;
+      margin: 0 auto 2.5rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+    .hero-cta-group {
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .btn-glow {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), #7a4f1a);
+      color: #ffffff;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem; font-weight: 600;
+      padding: 1rem 2.5rem; border-radius: 50px;
+      border: none; cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 0 32px rgba(201,169,110,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 48px rgba(201,169,110,0.45);
+    }
+    .hero-note {
+      font-size: 0.78rem; color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-price-badge {
+      display: flex; align-items: center; gap: 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.25rem 2rem;
+      margin: 2.5rem auto 0;
+      width: fit-content;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      animation: fadeUp 1s 0.4s ease both;
+    }
+    .price-original {
+      font-size: 1.1rem; color: var(--muted);
+      text-decoration: line-through;
+    }
+    .price-arrow { color: var(--muted); font-size: 1.2rem; }
+    .price-sale {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .price-label {
+      font-size: 0.75rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    .price-tag {
+      background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(180,138,255,0.1));
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 8px; padding: 0.4rem 0.75rem;
+      font-size: 0.72rem; font-weight: 600; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      position: relative; z-index: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 2rem;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .section {
+      position: relative; z-index: 1;
+      max-width: 1000px; margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .section-eyebrow {
+      font-size: 0.75rem; font-weight: 500;
+      color: var(--accent2); letter-spacing: 0.15em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400; line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .section h2 em { font-style: italic; color: var(--accent2); }
+    .section-sub {
+      color: var(--muted); font-size: 1rem; font-weight: 300;
+      max-width: 500px; margin-bottom: 3rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .feature-card:hover {
+      border-color: rgba(123,82,168,0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .feature-icon {
+      font-size: 1.8rem; margin-bottom: 1rem;
+      display: block;
+    }
+    .feature-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 600;
+      margin-bottom: 0.5rem; color: var(--text);
+    }
+    .feature-card p {
+      font-size: 0.9rem; color: var(--muted); font-weight: 300;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .step {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 1rem;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+    }
+    .step h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600;
+    }
+    .step p { font-size: 0.9rem; color: var(--muted); font-weight: 300; }
+
+    /* ── INTAKE FORM ── */
+    .form-section {
+      position: relative; z-index: 1;
+      background: #f3efe8;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+    }
+    .form-inner {
+      max-width: 720px; margin: 0 auto;
+      text-align: center;
+    }
+    .form-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400; margin-bottom: 0.75rem;
+    }
+    .form-inner h2 em { font-style: italic; color: var(--accent); }
+    .form-inner p { color: var(--muted); font-weight: 300; margin-bottom: 2.5rem; }
+
+    .intake-form {
+      text-align: left;
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--accent2); letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: #faf8f5;
+      border: 1px solid rgba(180,140,80,0.2);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem; font-weight: 300;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(122,110,95,0.5); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: rgba(123,82,168,0.35); box-shadow: 0 0 0 3px rgba(123,82,168,0.06); }
+    .form-group select option { background: #fff; color: var(--text); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .style-options {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .style-chip {
+      background: #faf8f5;
+      border: 1px solid rgba(180,140,80,0.2);
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      font-size: 0.82rem; font-weight: 400;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .style-chip:hover { border-color: rgba(123,82,168,0.3); color: var(--accent2); }
+    .style-chip.selected {
+      background: rgba(123,82,168,0.08);
+      border-color: rgba(123,82,168,0.35);
+      color: var(--accent2);
+    }
+    .style-other-input {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .style-other-input.visible { display: block; }
+
+    /* Payment options */
+    .payment-opts {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .pay-opt {
+      background: #faf8f5;
+      border: 1px solid rgba(180,140,80,0.2);
+      border-radius: 12px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .pay-opt:hover { border-color: rgba(155,108,47,0.4); }
+    .pay-opt.selected {
+      border-color: var(--accent);
+      background: rgba(155,108,47,0.05);
+    }
+    .pay-opt-title {
+      font-weight: 600; font-size: 0.95rem; color: var(--text);
+    }
+    .pay-opt-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 600; color: var(--accent);
+      line-height: 1;
+    }
+    .pay-opt-note {
+      font-size: 0.78rem; color: var(--muted); font-weight: 300;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--accent), #7a4f1a);
+      color: #ffffff;
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      padding: 1.1rem 2rem; border-radius: 50px;
+      border: none; cursor: pointer;
+      width: 100%;
+      box-shadow: 0 0 32px rgba(201,169,110,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.04em;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 48px rgba(201,169,110,0.4);
+    }
+    .form-disclaimer {
+      font-size: 0.78rem; color: var(--muted);
+      text-align: center; margin-top: 0.75rem; font-weight: 300;
+    }
+
+    /* ── MORE SECTION ── */
+    .more-section {
+      position: relative; z-index: 1;
+      max-width: 720px; margin: 0 auto;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .more-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .more-card p {
+      color: var(--muted); font-weight: 300; font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid rgba(180,140,80,0.3);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      padding: 0.8rem 2rem; border-radius: 50px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .btn-ghost:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    /* ── THANK YOU PAGE ── */
+    #thankyou-page {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: var(--bg);
+      flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+    }
+    #thankyou-page.active { display: flex; }
+    .ty-glow {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(155,108,47,0.2), transparent 70%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; margin-bottom: 2rem;
+      animation: tyFade 0.8s ease both;
+    }
+    .ty-content { max-width: 560px; animation: tyFade 0.9s 0.1s ease both; }
+    .ty-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400; margin-bottom: 1rem;
+    }
+    .ty-content h2 em { font-style: italic; color: var(--accent); }
+    .ty-content p { color: var(--muted); font-weight: 300; margin-bottom: 2rem; }
+
+    .ty-payment-opts {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .ty-pay-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      background: #faf8f5;
+      border: 1px solid rgba(180,140,80,0.2);
+      border-radius: 14px; padding: 1.5rem 1rem;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .ty-pay-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .ty-pay-btn.primary {
+      background: rgba(155,108,47,0.06);
+      border-color: rgba(155,108,47,0.3);
+    }
+    .ty-pay-label { font-size: 0.75rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .ty-pay-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600; color: var(--accent); line-height: 1;
+    }
+    .ty-pay-sub { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+    .ty-note { font-size: 0.82rem; color: var(--muted); font-weight: 300; }
+
+    @keyframes tyFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      background: #f3efe8;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem; color: var(--muted); font-weight: 300;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .payment-opts { grid-template-columns: 1fr; }
+      .ty-payment-opts { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="brand-main">Promptly Done Automations™</span>
+    <span class="brand-sub">For the <span style="text-transform:none;">FloWeTREE</span> Community</span>
+  </div>
+  <span class="nav-badge">✦ Exclusive Member Deal</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="dot"></span>Built for Psychics, Mediums, Tarot Readers & more</span>
+      <span class="ticker-item"><span class="dot"></span><span style="text-transform:none;">FloWeTREE</span> Community — Limited Offer</span>
+      <span class="ticker-item"><span class="dot"></span>$249 Member Exclusive Deal</span>
+      <span class="ticker-item"><span class="dot"></span>Built for Psychics, Mediums, Tarot Readers & more</span>
+      <span class="ticker-item"><span class="dot"></span><span style="text-transform:none;">FloWeTREE</span> Community — Limited Offer</span>
+      <span class="ticker-item"><span class="dot"></span>$249 Member Exclusive Deal</span>
+    </div>
+  </div>
+  <h1>Your gift deserves a<br/><em>home online.</em></h1>
+  <p class="hero-sub">A beautiful, one-page website built for psychics, mediums, tarot readers, astrologers & spiritual guides — so your clients can find you, feel you, and book you.</p>
+  <div class="hero-cta-group">
+    <a href="#intake" class="btn-glow">Get Started →</a>
+    <span class="hero-note">Only available to FloWeTREE members</span>
+  </div>
+  <div class="hero-price-badge">
+    <div>
+      <div class="price-original">$497</div>
+      <div style="font-size:0.72rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">Regular Price</div>
+    </div>
+    <div class="price-arrow">→</div>
+    <div>
+      <div class="price-sale">$249</div>
+      <div class="price-label">Community Price</div>
+    </div>
+    <div class="price-tag">50% Off</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT'S INCLUDED -->
+<div class="section">
+  <div class="section-eyebrow">What You Get</div>
+  <h2>Everything you need to<br/><em>shine online</em></h2>
+  <p class="section-sub">One beautiful, scrollable page — built to showcase your energy and convert visitors into clients.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">✦</span>
+      <h3>Hero Section</h3>
+      <p>Your name, your brand, your vibe — front and center. The first impression that stops the scroll.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🌙</span>
+      <h3>About Section</h3>
+      <p>Tell your story. Who you are, what you do, and why your gift is real. Build instant trust.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔮</span>
+      <h3>Services Section</h3>
+      <p>Showcase your readings, sessions, or offerings clearly — so clients know exactly what to book.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✉️</span>
+      <h3>Contact Section</h3>
+      <p>A clean contact form so clients can reach out and connect with you directly.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💳</span>
+      <h3>Payment Button</h3>
+      <p>Get paid seamlessly. A Stripe or PayPal button so clients can pay for sessions right on your site.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📱</span>
+      <h3>Mobile-Friendly</h3>
+      <p>Looks stunning on every device. Most of your clients will find you on their phones.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">✏️</span>
+      <h3>2 Revision Rounds</h3>
+      <p>We get it right together. Two rounds of tweaks to make sure the final site feels perfectly you.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🚀</span>
+      <h3>Launch-Ready Delivery</h3>
+      <p>Fully built and ready to go live. No tech headaches — just your beautiful site, delivered.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="section-eyebrow">The Process</div>
+  <h2>Simple. Fast. <em>Done.</em></h2>
+  <p class="section-sub">From intake form to live website — here's how it flows.</p>
+
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Fill the Form</h3>
+      <p>Tell us your vision — colors, style, services, and any sites that inspire you.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>We Build It</h3>
+      <p>We design and build your custom one-page site tailored to your energy and brand.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Review & Refine</h3>
+      <p>You review, we fine-tune. Up to 2 rounds until it feels exactly right.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Go Live</h3>
+      <p>Your site is live and ready to attract clients, showcase your gift, and collect payment.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- INTAKE FORM -->
+<div class="form-section" id="intake">
+  <div class="form-inner">
+    <div class="section-eyebrow" style="text-align:center;margin-bottom:0.75rem;"><span style="text-transform:none;">FloWeTREE</span> Member Exclusive</div>
+    <h2>Tell us about your<br/><em>vision & brand</em></h2>
+    <p>Fill out the form below and we'll get started on your site. Spots are limited for FloWeTREE members.</p>
+
+    <form class="intake-form" id="intakeForm">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Your full name" required/>
+        </div>
+        <div class="form-group">
+          <label>Business / Brand Name</label>
+          <input type="text" placeholder="Your brand or practice name" required/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" placeholder="+1 (000) 000-0000"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>What do you offer? (Website Goal)</label>
+        <select required>
+          <option value="" disabled selected>Select your primary offering...</option>
+          <option>Psychic Readings</option>
+          <option>Mediumship Sessions</option>
+          <option>Tarot Card Readings</option>
+          <option>Astrology Readings</option>
+          <option>Energy Healing / Reiki</option>
+          <option>Spiritual Coaching</option>
+          <option>Multiple Services</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Design Style (select all that apply)</label>
+        <div class="style-options" id="styleOptions">
+          <span class="style-chip" onclick="toggleChip(this)">Mystical & Dark</span>
+          <span class="style-chip" onclick="toggleChip(this)">Soft & Ethereal</span>
+          <span class="style-chip" onclick="toggleChip(this)">Celestial & Cosmic</span>
+          <span class="style-chip" onclick="toggleChip(this)">Earthy & Natural</span>
+          <span class="style-chip" onclick="toggleChip(this)">Elegant & Minimal</span>
+          <span class="style-chip" onclick="toggleChip(this)">Bold & Colorful</span>
+          <span class="style-chip" onclick="toggleChip(this)">Witchy & Moody</span>
+          <span class="style-chip" onclick="toggleChip(this)">Light & Airy</span>
+          <span class="style-chip" onclick="toggleChipOther(this)">Other ✏️</span>
+        </div>
+        <div class="style-other-input" id="styleOtherWrap">
+          <input type="text" id="styleOtherText" placeholder="Describe your style in your own words…"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Color Preferences</label>
+        <input type="text" placeholder="e.g. deep purples, gold accents, soft creams, black & gold…"/>
+      </div>
+
+      <div class="form-group">
+        <label>Reference Websites (sites you love)</label>
+        <textarea placeholder="Paste links or describe websites that inspire the look and feel you want…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Anything else we should know?</label>
+        <textarea placeholder="Tell us anything extra about your brand, your clients, or your vision…" style="min-height:80px;"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Payment Option</label>
+        <div class="payment-opts">
+          <div class="pay-opt selected" id="payFull" onclick="selectPay('full')">
+            <div class="pay-opt-title">Pay in Full</div>
+            <div class="pay-opt-amount">$249</div>
+            <div class="pay-opt-note">One payment, best value</div>
+          </div>
+          <div class="pay-opt" id="payHalf" onclick="selectPay('half')">
+            <div class="pay-opt-title">Half Upfront</div>
+            <div class="pay-opt-amount">$125</div>
+            <div class="pay-opt-note">$125 now, $124 at delivery</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label style="display:flex;align-items:flex-start;gap:0.75rem;cursor:pointer;text-transform:none;font-size:0.88rem;color:var(--muted);font-weight:300;letter-spacing:0;">
+          <input type="checkbox" id="agreeTerms" required style="margin-top:3px;width:16px;height:16px;flex-shrink:0;accent-color:var(--accent);cursor:pointer;"/>
+          <span>I have read and agree to the <a href="terms.html" target="_blank" style="color:var(--accent);text-decoration:underline;">Terms of Service</a> and <a href="privacy.html" target="_blank" style="color:var(--accent);text-decoration:underline;">Privacy Policy</a>. I understand that deposits are non-refundable once work has begun and that I agree to resolve any disputes directly before initiating a chargeback.</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn-submit">Submit My Website Request ✦</button>
+      <p class="form-disclaimer">You won't be charged yet. We'll reach out within 24–48 hours to confirm your spot and send your payment link.</p>
+    </form>
+  </div>
+</div>
+
+<!-- NEED MORE? -->
+<div class="more-section">
+  <div class="more-card">
+    <div class="section-eyebrow" style="text-align:center;margin-bottom:0.75rem;">Need Something More?</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;margin-bottom:1rem;">Websites, custom builds & apps — we do it all.</h2>
+    <p style="margin-bottom:1.25rem;">Need more pages, a blog, or a portfolio? We build multi-page websites and fully custom experiences tailored to your brand.</p>
+    <p style="margin-bottom:0.5rem;font-size:0.9rem;color:var(--text);font-weight:500;">Did you know you can also have your own <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--accent);">custom app?</em></p>
+    <p style="margin-bottom:1.5rem;">Many spiritual practitioners don't realise they can offer their clients a fully branded app experience. Here are just a few ideas:</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin-bottom:1.75rem;text-align:left;">
+      <div style="background:#faf8f5;border:1px solid var(--border);border-radius:12px;padding:1rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🃏</div>
+        <div style="font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">Daily Card Pull</div>
+        <div style="font-size:0.8rem;color:var(--muted);font-weight:300;">Clients get a tarot card of the day every time they open the app</div>
+      </div>
+      <div style="background:#faf8f5;border:1px solid var(--border);border-radius:12px;padding:1rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">♈</div>
+        <div style="font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">Birth Chart Calculator</div>
+        <div style="font-size:0.8rem;color:var(--muted);font-weight:300;">Enter a birthday and instantly receive a full astrology chart</div>
+      </div>
+      <div style="background:#faf8f5;border:1px solid var(--border);border-radius:12px;padding:1rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🔢</div>
+        <div style="font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">Numerology Calculator</div>
+        <div style="font-size:0.8rem;color:var(--muted);font-weight:300;">Enter a name & birthdate to reveal your life path number</div>
+      </div>
+      <div style="background:#faf8f5;border:1px solid var(--border);border-radius:12px;padding:1rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">🌙</div>
+        <div style="font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">Moon Phase Tracker</div>
+        <div style="font-size:0.8rem;color:var(--muted);font-weight:300;">Track the current moon phase with rituals & guidance</div>
+      </div>
+      <div style="background:#faf8f5;border:1px solid var(--border);border-radius:12px;padding:1rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">✨</div>
+        <div style="font-size:0.88rem;font-weight:500;color:var(--text);margin-bottom:0.25rem;">Affirmation App</div>
+        <div style="font-size:0.8rem;color:var(--muted);font-weight:300;">Daily spiritual affirmations delivered to your clients</div>
+      </div>
+      <div style="background:linear-gradient(135deg,rgba(155,108,47,0.06),rgba(123,82,168,0.06));border:1px dashed rgba(123,82,168,0.25);border-radius:12px;padding:1rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.4rem;">💡</div>
+        <div style="font-size:0.88rem;font-weight:500;color:var(--accent2);margin-bottom:0.25rem;">Your Idea</div>
+        <div style="font-size:0.8rem;color:var(--muted);font-weight:300;">Have something else in mind? If you can dream it, we can build it</div>
+      </div>
+    </div>
+
+    <a href="mailto:info@promptlydoneautomations.com" class="btn-ghost">Get in Touch →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Promptly Done Automations™. All rights reserved. &nbsp;|&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+  <a href="terms.html">Terms of Service</a></p>
+  <p style="margin-top:0.5rem;font-size:0.72rem;opacity:0.5;">Exclusive offer for FloWeTREE community members.</p>
+</footer>
+
+<!-- THANK YOU PAGE -->
+<div id="thankyou-page">
+  <div class="ty-glow">✦</div>
+  <div class="ty-content">
+    <div class="section-eyebrow" style="margin-bottom:0.75rem;">We've got you!</div>
+    <h2>Thank you for<br/><em>reaching out</em></h2>
+    <p>We received your details and will reach out within 24–48 hours. In the meantime, you can secure your project by making your payment below.</p>
+
+    <div class="ty-payment-opts">
+      <a href="https://buy.stripe.com/5kQ28q5hS2Xg1Nb8lz1ck00" target="_blank" class="ty-pay-btn primary" id="tyPayFull">
+        <span class="ty-pay-label">Pay in Full</span>
+        <span class="ty-pay-amount">$249</span>
+        <span class="ty-pay-sub">One payment · Best value</span>
+      </a>
+      <a href="https://buy.stripe.com/aFa6oGaCc41k1Nb9pD1ck01" target="_blank" class="ty-pay-btn" id="tyPayHalf">
+        <span class="ty-pay-label">Half Upfront</span>
+        <span class="ty-pay-amount">$125</span>
+        <span class="ty-pay-sub">$124 due at delivery</span>
+      </a>
+    </div>
+
+    <p class="ty-note" style="font-size:0.95rem;margin-top:1.25rem;">Payment links will be sent via email too. Questions? Email us at <a href="/cdn-cgi/l/email-protection#f69f989099b68684999b86829a8f92999893978382999b97829f999885d895999b" style="color:var(--accent);text-decoration:none;"><span class="__cf_email__" data-cfemail="b0d9ded6dff0c0c2dfddc0c4dcc9d4dfded5d1c5c4dfddd1c4d9dfdec39ed3dfdd">[email&#160;protected]</span></a></p>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const SUPABASE_URL = "https://zfzpvwufokvecnpzkvsc.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpmenB2d3Vmb2t2ZWNucHprdnNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMDI3MDYsImV4cCI6MjA4OTY3ODcwNn0.IWxx2A-t7ZqQcr3XFv9wGD0tGucI2MjoeiBfqsB0WAQ";
+
+  function toggleChip(el) {
+    el.classList.toggle('selected');
+  }
+
+  function toggleChipOther(el) {
+    el.classList.toggle('selected');
+    const wrap = document.getElementById('styleOtherWrap');
+    if (el.classList.contains('selected')) {
+      wrap.classList.add('visible');
+      document.getElementById('styleOtherText').focus();
+    } else {
+      wrap.classList.remove('visible');
+      document.getElementById('styleOtherText').value = '';
+    }
+  }
+
+  let selectedPay = 'full';
+  function selectPay(type) {
+    selectedPay = type;
+    document.getElementById('payFull').classList.toggle('selected', type === 'full');
+    document.getElementById('payHalf').classList.toggle('selected', type === 'half');
+  }
+
+  document.getElementById('intakeForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const selectedChips = [...document.querySelectorAll('.style-chip.selected')]
+      .map(c => c.textContent.replace(' ✏️','').trim())
+      .filter(c => c !== 'Other');
+
+    const payload = {
+      name: document.querySelector('input[placeholder="Your full name"]').value,
+      business_name: document.querySelector('input[placeholder="Your brand or practice name"]').value,
+      email: document.querySelector('input[type="email"]').value,
+      phone: document.querySelector('input[type="tel"]').value,
+      offering: document.querySelector('select').value,
+      design_styles: selectedChips,
+      design_other: document.getElementById('styleOtherText').value || null,
+      colors: document.querySelector('input[placeholder*="deep purples"]').value,
+      reference_sites: document.querySelector('textarea[placeholder*="Paste links"]').value,
+      extra_info: document.querySelector('textarea[placeholder*="Tell us anything extra"]').value,
+      payment_option: selectedPay,
+      terms_agreed: document.getElementById('agreeTerms').checked,
+      agreed_at: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/dynamic-function`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
+
+      const ty = document.getElementById('thankyou-page');
+      ty.classList.add('active');
+      window.scrollTo(0, 0);
+
+      if (selectedPay === 'full') {
+        document.getElementById('tyPayFull').classList.add('primary');
+        document.getElementById('tyPayHalf').classList.remove('primary');
+      } else {
+        document.getElementById('tyPayHalf').classList.
