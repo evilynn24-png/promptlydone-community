@@ -922,4 +922,18 @@
         document.getElementById('tyPayFull').classList.add('primary');
         document.getElementById('tyPayHalf').classList.remove('primary');
       } else {
-        document.getElementById('tyPayHalf').classList.
+        document.getElementById('tyPayHalf').classList.add('primary');
+        document.getElementById('tyPayFull').classList.remove('primary');
+      }
+
+    } catch (err) {
+      console.error('Submission error:', err);
+      btn.textContent = 'Submit My Website Request ✦';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us directly at info@promptlydoneautomations.com');
+    }
+  });
+</script>
+
+</body>
+</html>
