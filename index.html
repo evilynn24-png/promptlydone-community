@@ -710,15 +710,15 @@
       <div class="form-group">
         <label>Design Style (select all that apply)</label>
         <div class="style-options" id="styleOptions">
-          <span class="style-chip" onclick="toggleChip(this)">Mystical & Dark</span>
-          <span class="style-chip" onclick="toggleChip(this)">Soft & Ethereal</span>
-          <span class="style-chip" onclick="toggleChip(this)">Celestial & Cosmic</span>
-          <span class="style-chip" onclick="toggleChip(this)">Earthy & Natural</span>
-          <span class="style-chip" onclick="toggleChip(this)">Elegant & Minimal</span>
-          <span class="style-chip" onclick="toggleChip(this)">Bold & Colorful</span>
-          <span class="style-chip" onclick="toggleChip(this)">Witchy & Moody</span>
-          <span class="style-chip" onclick="toggleChip(this)">Light & Airy</span>
-          <span class="style-chip" onclick="toggleChipOther(this)">Other ✏️</span>
+          <span class="style-chip">Mystical & Dark</span>
+          <span class="style-chip">Soft & Ethereal</span>
+          <span class="style-chip">Celestial & Cosmic</span>
+          <span class="style-chip">Earthy & Natural</span>
+          <span class="style-chip">Elegant & Minimal</span>
+          <span class="style-chip">Bold & Colorful</span>
+          <span class="style-chip">Witchy & Moody</span>
+          <span class="style-chip">Light & Airy</span>
+          <span class="style-chip">Other ✏️</span>
         </div>
         <div class="style-other-input" id="styleOtherWrap">
           <input type="text" id="styleOtherText" placeholder="Describe your style in your own words…"/>
@@ -743,12 +743,12 @@
       <div class="form-group">
         <label>Payment Option</label>
         <div class="payment-opts">
-          <div class="pay-opt selected" id="payFull" onclick="selectPay('full')">
+          <div class="pay-opt selected" id="payFull">
             <div class="pay-opt-title">Pay in Full</div>
             <div class="pay-opt-amount">$249</div>
             <div class="pay-opt-note">One payment, best value</div>
           </div>
-          <div class="pay-opt" id="payHalf" onclick="selectPay('half')">
+          <div class="pay-opt" id="payHalf">
             <div class="pay-opt-title">Half Upfront</div>
             <div class="pay-opt-amount">$125</div>
             <div class="pay-opt-note">$125 now, $124 at delivery</div>
@@ -867,6 +867,19 @@
       document.getElementById('styleOtherText').value = '';
     }
   }
+
+  document.querySelectorAll('.style-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      if (this.textContent.includes('✏️')) {
+        toggleChipOther(this);
+      } else {
+        this.classList.toggle('selected');
+      }
+    });
+  });
+
+  document.getElementById('payFull').addEventListener('click', function() { selectPay('full'); });
+  document.getElementById('payHalf').addEventListener('click', function() { selectPay('half'); });
 
   let selectedPay = 'full';
   function selectPay(type) {
